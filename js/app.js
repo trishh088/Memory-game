@@ -1,7 +1,18 @@
+"use strict";
 /*
  * Create a list that holds all of your cards
  */
-
+const gameCards = {
+  cardNames: ["fa fa-cube","fa fa-cube",
+               "fa fa-paper-plane-o","fa fa-paper-plane-o",
+               "fa fa-bicycle","fa fa-bicycle",
+               "fa fa-bolt","fa fa-bolt",
+               "fa fa-bomb","fa fa-bomb",
+               "fa fa-leaf","fa fa-leaf",
+               "fa fa-diamond","fa fa-diamond",
+               "fa fa-anchor","fa fa-anchor"
+             ]
+}
 
 /*
  * Display the cards on the page
@@ -9,6 +20,17 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ var allCardTypes = [];
+var cards = shuffle(gameCards.cardNames);
+console.log(cards);
+cards.forEach(function(symbol){
+ // allCardTypes.push(symbol);
+
+  $('.deck').append(symbol);
+
+
+})
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
