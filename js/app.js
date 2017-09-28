@@ -26,7 +26,7 @@ const gameCards = ["fa fa-cube","fa fa-cube",
      $('.deck').append(cardElement); // adds the cardelement to the html class deck
  });
 
-$('li').addClass('open show'); //helps to output the cards on the screen and adds the class open and show
+// $('li').addClass('open show'); //helps to output the cards on the screen and adds the class open and show
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -55,9 +55,13 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 $('li').click(function() {
- displayCard();
+ showOpenCard(this);
+
 });
 
-var displayCard = function() {
-  $('li').addClass('show');
+var showOpenCard = function(card) {
+  var $card = $(card);
+// $card // jquery object and $(card) this makes the jquery onbect
+  console.log(card,$card);
+  $card.addClass('show open');
 }
