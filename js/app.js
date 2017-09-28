@@ -12,13 +12,15 @@ const gameCards = ["fa fa-cube","fa fa-cube",
                "fa fa-anchor","fa fa-anchor"
              ]
 
+var cardOpened = ""; // for the symbol on show
+var liOpened = ""; // for the box clicked
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- var allCardTypes = []; // to store all the cardnames value in an empty array
+ // var allCardTypes = []; // to store all the cardnames value in an empty array
  var shuffledCards = shuffle(gameCards);
 
  shuffledCards.forEach(function(symbol) {
@@ -56,12 +58,27 @@ function shuffle(array) {
  */
 $('li').click(function() {
  showOpenCard(this);
+ OpenedCard(this);
+ cardsMatch(this);
 
 });
 
 var showOpenCard = function(card) {
   var $card = $(card);
-// $card // jquery object and $(card) this makes the jquery onbect
+// $card = jquery object and $(card) this makes the jquery onbect
   console.log(card,$card);
   $card.addClass('show open');
+}
+
+var OpenedCard = function(symbolName) {
+  if(cardOpened = "") {
+    liOpened = symbolName;
+  }
+}
+
+var cardsMatch = function(symbol) {
+  if(showOpenCard(symbol) === OpenedCard(symbol)){
+    $(this).addClass('show match open')
+  } else
+  $(this).removeClass('show open')
 }
