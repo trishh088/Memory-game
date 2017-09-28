@@ -20,7 +20,7 @@ var liOpened = ""; // for the box clicked
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- // var allCardTypes = []; // to store all the cardnames value in an empty array
+ var allCardTypes = []; // to store all the cardnames value in an empty array
  var shuffledCards = shuffle(gameCards);
 
  shuffledCards.forEach(function(symbol) {
@@ -60,6 +60,7 @@ $('li').click(function() {
  showOpenCard(this);
  OpenedCard(this);
  cardsMatch(this);
+ limitFlip(this);
 
 });
 
@@ -76,9 +77,13 @@ var OpenedCard = function(symbolName) {
   }
 }
 
+var limitFlip = function() {
+  if(cardOpened > 2)
+  $('li').removeClass('show open');
+}
 var cardsMatch = function(symbol) {
-  if(showOpenCard(symbol) === OpenedCard(symbol)){
-    $(this).addClass('show match open')
+  if(allCardTypes.length < 2) {
+    $(this).addClass(' match ')
   } else
   $(this).removeClass('show open')
 }
