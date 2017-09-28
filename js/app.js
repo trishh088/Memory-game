@@ -12,26 +12,22 @@ const gameCards = ["fa fa-cube","fa fa-cube",
                "fa fa-anchor","fa fa-anchor"
              ]
 
-// var allCards = []; // to store all the cardnames value in an empty array
-// var allCardIds = []; //empty array to store allthe cards ids
-// var tiles_flipped = 0; // to keep track of how many tiles are flipped
-
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- var allCardTypes = [];
+ var allCardTypes = []; // to store all the cardnames value in an empty array
  var shuffledCards = shuffle(gameCards);
 
  shuffledCards.forEach(function(symbol) {
      var cardElement = '<li class="card"><i class="' + symbol + '"></i></li>';
      $('.deck').append(cardElement);
+    //  var a;
+    //  $('.card').html(gameCards[a]);
+
  });
-
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
