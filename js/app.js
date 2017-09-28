@@ -22,12 +22,11 @@ const gameCards = ["fa fa-cube","fa fa-cube",
  var shuffledCards = shuffle(gameCards);
 
  shuffledCards.forEach(function(symbol) {
-     var cardElement = '<li class="card"><i class="' + symbol + '"></i></li>';
-     $('.deck').append(cardElement);
-    //  var a;
-    //  $('.card').html(gameCards[a]);
-
+     var cardElement = '<li class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
+     $('.deck').append(cardElement); // adds the cardelement to the html class deck
  });
+
+$('li').addClass('open show'); //helps to output the cards on the screen and adds the class open and show
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
