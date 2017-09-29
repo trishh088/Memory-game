@@ -63,18 +63,19 @@ $('li').click(function() {
  // $(allCardTypes).removeClass('show open');
  flipCount = 0;
  $('li').removeClass('show open');
-
+ allCardTypes.length = 0;
 
 } else if (allCardTypes.length >= 2){
 
    if(allCardTypes["0"].children  === allCardTypes["1"].children) {
-     $(allCardTypes["0" , "1"]).addClass('match show open');
+     $(allCardTypes).slice(0,2).addClass('match show open');
     }
 
-  allCardTypes.length = 0;
+  allCardTypes.length = 1;
 }else {
   allCardTypes.push(this); // to add the new card names to the empty array
 }
+
 
 //
  showOpenCard(this);
@@ -87,7 +88,7 @@ $('li').click(function() {
 
 var showOpenCard = function(card) {
   var $card = $(card);
-  flipCount++; // increments the flipCount
+  flipCount++; // increments the flipCount;
 
 // $card = jquery object and $(card) this makes the jquery onbect
   console.log(card,$card);
