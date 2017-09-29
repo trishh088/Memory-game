@@ -24,6 +24,7 @@ var flipCount = 0; //counter to keep trach of the cards clicked
  var allCardTypes = []; // to store all the cardnames value in an empty array
  var shuffledCards = shuffle(gameCards);
 
+//index is for avoiding the flipcount to increment when a user clicks the card again and again
  shuffledCards.forEach(function(symbol,index) {
      var cardElement = '<li id="index" class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
      $('.deck').append(cardElement); // adds the cardelement to the html class deck
@@ -61,23 +62,22 @@ $('li').click(function() {
  showOpenCard(this);
  console.log(allCardTypes.length,flipCount);
 //same card keeps clciking again and again, slipping problem and matching problem
- // if(flipCount >= 2) {
- // // $(allCardTypes).removeClass('show open');
 
-// }
 allCardTypes.push(this); // to add the new card names to the empty array
 
 if (allCardTypes.length >= 2){
-  console.log("Hi");
+  console.log("if block");
   if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
     $(allCardTypes).slice(0,2).addClass('match show open');
   } else {
+    console.log("else block")
     $('li').removeClass('show open');
   }
-    allCardTypes.length = 0;
-    flipCount = 0;
-  }
+  console.log("first if block")
+  allCardTypes.length = 0;
+  flipCount = 0;
 
+  }
 
 // OpenedCard(this);
 // cardsMatch(this);
