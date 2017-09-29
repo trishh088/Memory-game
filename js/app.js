@@ -58,8 +58,7 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 $('li').click(function() {
-  flipCount++;
-//same card keeps clciking again and again, slipping problem and matching problem 
+//same card keeps clciking again and again, slipping problem and matching problem
  if(flipCount >= 2) {
  // $(allCardTypes).removeClass('show open');
  flipCount = 0;
@@ -77,10 +76,10 @@ $('li').click(function() {
   allCardTypes.push(this); // to add the new card names to the empty array
 }
 
-
-showOpenCard(this);
-OpenedCard(this);
-cardsMatch(this);
+//
+ showOpenCard(this);
+// OpenedCard(this);
+// cardsMatch(this);
 
 });
 
@@ -88,6 +87,7 @@ cardsMatch(this);
 
 var showOpenCard = function(card) {
   var $card = $(card);
+  flipCount++; // increments the flipCount
 
 // $card = jquery object and $(card) this makes the jquery onbect
   console.log(card,$card);
