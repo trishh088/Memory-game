@@ -95,23 +95,23 @@ var showOpenCard = function(card) {
   $card.addClass('show open');
 }
 
-var OpenedCard = function(symbolName) {
-  if(cardOpened = "") {
-    liOpened = symbolName;
-    cardOpened = liOpened;
-  }
-}
-
-
-var limitFlip = function() {
-  if(flipCount > 2) {
-  $('li').removeClass('show open');
-  flipCount == 0;
-}
-}
-var cardsMatch = function(symbol) {
-  if(showOpenCard === OpenedCard) {
-    $(this).addClass(' match ')
-  } else
-  $(this).removeClass('show open')
-}
+// var OpenedCard = function(symbolName) {
+//   if(cardOpened = "") {
+//     liOpened = symbolName;
+//     cardOpened = liOpened;
+//   }
+// }
+//
+//
+// var limitFlip = function() {
+//   if(flipCount > 2) {
+//   $('li').removeClass('show open');
+//   flipCount == 0;
+// }
+// }
+// var cardsMatch = function(symbol) {
+//   if(showOpenCard === OpenedCard) {
+//     $(this).addClass(' match ')
+//   } else
+//   $(this).removeClass('show open')
+// }
