@@ -14,7 +14,7 @@ const gameCards = ["fa fa-cube","fa fa-cube",
 
 var cardOpened = ""; // for the symbol on show
 var liOpened = ""; // for the box clicked
-var flipCount = 0;
+var flipCount = 0; //counter to keep trach of the cards clicked
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -59,7 +59,7 @@ function shuffle(array) {
  */
 $('li').click(function() {
   flipCount++;
-
+//same card keeps clciking again and again, slipping problem and matching problem 
  if(flipCount >= 2) {
  // $(allCardTypes).removeClass('show open');
  flipCount = 0;
