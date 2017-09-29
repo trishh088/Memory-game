@@ -63,7 +63,7 @@ $('li').click(function() {
  // $(allCardTypes).removeClass('show open');
  flipCount = 0;
  $('li').removeClass('show open');
- allCardTypes.length = 0;
+
 
 } else if (allCardTypes.length >= 2){
 
@@ -71,7 +71,7 @@ $('li').click(function() {
      $(allCardTypes).slice(0,2).addClass('match show open');
     }
 
-  allCardTypes.length = 1;
+  allCardTypes.length = 0;
 }else {
   allCardTypes.push(this); // to add the new card names to the empty array
 }
