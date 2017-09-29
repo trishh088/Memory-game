@@ -24,8 +24,8 @@ var flipCount = 0; //counter to keep trach of the cards clicked
  var allCardTypes = []; // to store all the cardnames value in an empty array
  var shuffledCards = shuffle(gameCards);
 
- shuffledCards.forEach(function(symbol) {
-     var cardElement = '<li class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
+ shuffledCards.forEach(function(symbol,index) {
+     var cardElement = '<li id="index" class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
      $('.deck').append(cardElement); // adds the cardelement to the html class deck
  });
 
@@ -58,27 +58,27 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 $('li').click(function() {
-//same card keeps clciking again and again, slipping problem and matching problem
- if(flipCount >= 2) {
- // $(allCardTypes).removeClass('show open');
- flipCount = 0;
- $('li').removeClass('show open');
-
-
-} else if (allCardTypes.length >= 2){
-
-   if(allCardTypes["0"].children  === allCardTypes["1"].children) {
-     $(allCardTypes).slice(0,2).addClass('match show open');
-    }
-
-  allCardTypes.length = 0;
-}else {
-  allCardTypes.push(this); // to add the new card names to the empty array
-}
-
-
-//
  showOpenCard(this);
+ console.log(allCardTypes.length,flipCount);
+//same card keeps clciking again and again, slipping problem and matching problem
+ // if(flipCount >= 2) {
+ // // $(allCardTypes).removeClass('show open');
+
+// }
+allCardTypes.push(this); // to add the new card names to the empty array
+
+if (allCardTypes.length >= 2){
+  console.log("Hi");
+  if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
+    $(allCardTypes).slice(0,2).addClass('match show open');
+  } else {
+    $('li').removeClass('show open');
+  }
+    allCardTypes.length = 0;
+    flipCount = 0;
+  }
+
+
 // OpenedCard(this);
 // cardsMatch(this);
 
