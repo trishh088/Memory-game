@@ -14,6 +14,7 @@ const gameCards = ["fa fa-cube","fa fa-cube",
 
 var cardOpened = ""; // for the symbol on show
 var liOpened = ""; // for the box clicked
+var flipCount = 0;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -57,15 +58,37 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 $('li').click(function() {
- showOpenCard(this);
- OpenedCard(this);
- cardsMatch(this);
- limitFlip(this);
+  flipCount++;
+
+ if(flipCount >= 2) {
+ // $(allCardTypes).removeClass('show open');
+ flipCount = 0;
+ $('li').removeClass('show open');
+
+
+} else if (allCardTypes.length >= 2){
+
+   if(allCardTypes["0"].children  === allCardTypes["1"].children) {
+     $(allCardTypes["0" , "1"]).addClass('match show open');
+    }
+
+  allCardTypes.length = 0;
+}else {
+  allCardTypes.push(this); // to add the new card names to the empty array
+}
+
+
+showOpenCard(this);
+OpenedCard(this);
+cardsMatch(this);
 
 });
 
+
+
 var showOpenCard = function(card) {
   var $card = $(card);
+
 // $card = jquery object and $(card) this makes the jquery onbect
   console.log(card,$card);
   $card.addClass('show open');
@@ -74,15 +97,19 @@ var showOpenCard = function(card) {
 var OpenedCard = function(symbolName) {
   if(cardOpened = "") {
     liOpened = symbolName;
+    cardOpened = liOpened;
   }
 }
 
+
 var limitFlip = function() {
-  if(cardOpened > 2)
+  if(flipCount > 2) {
   $('li').removeClass('show open');
+  flipCount == 0;
+}
 }
 var cardsMatch = function(symbol) {
-  if(allCardTypes.length < 2) {
+  if(showOpenCard === OpenedCard) {
     $(this).addClass(' match ')
   } else
   $(this).removeClass('show open')
