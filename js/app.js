@@ -67,15 +67,18 @@ allCardTypes.push(this); // to add the new card names to the empty array
 
 if (allCardTypes.length >= 2){
   console.log("if block");
-  if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
-    $(allCardTypes).slice(0,2).addClass('match show open');
-  } else {
-    console.log("else block")
-    $('li').removeClass('show open');
-  }
-  console.log("first if block")
-  allCardTypes.length = 0;
-  flipCount = 0;
+  function flipmatch(){
+    if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
+      $(allCardTypes).slice(0,2).addClass('match show open');
+    } else {
+      console.log("else block")
+      $('li').removeClass('show open');
+    }
+    console.log("first if block")
+    allCardTypes.length = 0;
+    flipCount = 0;
+
+    }setTimeout(flipmatch,500);
 
   }
 
@@ -83,7 +86,6 @@ if (allCardTypes.length >= 2){
 // cardsMatch(this);
 
 });
-
 
 
 var showOpenCard = function(card) {
