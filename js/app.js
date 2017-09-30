@@ -23,10 +23,11 @@ var flipCount = 0; //counter to keep trach of the cards clicked
  */
  var allCardTypes = []; // to store all the cardnames value in an empty array
  var shuffledCards = shuffle(gameCards);
-
+var indexNumber = 0; // made to check if any card is clicked twice
 //index is for avoiding the flipcount to increment when a user clicks the card again and again
  shuffledCards.forEach(function(symbol,index) {
-     var cardElement = '<li id="index" class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
+   indexNumber++ ;
+     var cardElement = '<li id="index '+indexNumber+'" class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
      $('.deck').append(cardElement); // adds the cardelement to the html class deck
  });
 
@@ -58,35 +59,47 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-$('li').click(function() {
+$('li').click(function(indexNumber) {
  showOpenCard(this);
  console.log(allCardTypes.length,flipCount);
 //same card keeps clciking again and again, slipping problem and matching problem
 
+
 allCardTypes.push(this); // to add the new card names to the empty array
 
 if (allCardTypes.length >= 2){
-  console.log("if block");
+  if(allCardTypes[0].id === allCardTypes[1].id){
+    flipCount--;
+  }
+return false;
   function flipmatch(){
+    //checks if the two cards in the allcardtypes array are same or not
     if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
+      // just adds the match to the last two clicks/ the allcardtypes
       $(allCardTypes).slice(0,2).addClass('match show open');
     } else {
-      console.log("else block")
+      //flips the cards if its not a match
       $('li').removeClass('show open');
     }
-    console.log("first if block")
+    //resets the array and the counter to zero
     allCardTypes.length = 0;
     flipCount = 0;
-
+    // settimeout is to flip the cards if not a match
     }setTimeout(flipmatch,500);
 
   }
 
 // OpenedCard(this);
 // cardsMatch(this);
+// avoidSameClicks(this);
 
 });
 
+// var avoidSameClicks = function () {
+//   if(allCardTypes[0].id === allCardTypes[1].id){
+//     flipCount--
+//   }
+// }
 
 var showOpenCard = function(card) {
   var $card = $(card);
