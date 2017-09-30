@@ -65,8 +65,8 @@ $('li').click(function(indexNumber) {
 OpenedCard(this);
 
 if (allCardTypes.length >= 2){
-
-  flipMatch()
+// to check if the cars=ds are matched
+  flipMatch(this)
 }
   // {
   //   // //checks if the two cards in the allcardtypes array are same or not
@@ -78,50 +78,45 @@ if (allCardTypes.length >= 2){
       notAMatch();
       //flips the cards if its not a match
       // $('li').removeClass('show open index');
-    }setTimeout(flipMatch,500);
+    }setTimeout(flipMatch,notAMatch,500); // to avoid delay in the flipping and to make it look smooth
     // //resets the array and the counter to zero
     // allCardTypes.length = 0;
     // flipCount = 0;
     // settimeout is to flip the cards if not a match
 
-
-
-
-// OpenedCard(this);
-// cardsMatch(this);
-
 });
 
 
-// var avoidSameClicks = function () {
-//   if(allCardTypes[0].id === allCardTypes[1].id){
-//     flipCount--
-//   }
-// }
-
 var showOpenCard = function(card) {
   var $card = $(card);
-  flipCount++; // increments the flipCount;
-
 // $card = jquery object and $(card) this makes the jquery onbect
   console.log(card,$card);
   // index class is added to avoid a user clicking the same cards
   $card.addClass('show open index');
+  flipCount++; // increments the flipCount;
+
 }
 
 var OpenedCard = function(card) {
   allCardTypes.push(card); // to add the new card names to the empty array
 }
 
-var flipMatch = function() {
+var flipMatch = function(card) {
+  if(allCardTypes.length > 1) {
   //checks if the two cards in the allcardtypes array are same or not
   if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
     // just adds the match to the last two clicks/ the allcardtypes
-    $(allCardTypes).slice(0,2).addClass('match show open');
+    $(allCardTypes).slice(0,2).addClass('match show open ');
+    allCardTypes.length = 0;
+    flipCount = 0;
   } else
   //resets the array and the counter to zero
   allCardTypes.length = 0;
   flipCount = 0;
+} else {
+  // so that the first card is also visible
+  $(allCardTypes).slice(0,1).addClass('show open index');
+}
 }
 
 var notAMatch = function() {
