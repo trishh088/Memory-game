@@ -13,6 +13,8 @@ const gameCards = ["fa fa-cube", "fa fa-cube",
              ]
 
 var flipCount = 0; //counter to keep track of the cards clicked
+var matches = 0;
+var cardPairs = 1;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -73,7 +75,7 @@ $('li')
         }
         setTimeout(flipMatch, notAMatch, 500); // to avoid delay in the flipping and to make it look smooth
 
-
+gameWin();
     });
 
 
@@ -99,6 +101,7 @@ var flipMatch = function (card) {
             $(allCardTypes)
                 .slice(0, 2)
                 .addClass('match show open ');
+                matches++;
             allCardTypes.length = 0;
             flipCount = 0;
         } else
@@ -117,4 +120,9 @@ var notAMatch = function () {
     $('li')
         .removeClass('show open index');
 
+}
+ var gameWin = function () {
+   if (matches === cardPairs) {
+     $('#winModal').show();
+ }
 }
