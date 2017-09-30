@@ -58,29 +58,34 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 $('li').click(function(indexNumber) {
+  // to show the clicked card
  showOpenCard(this);
  console.log(allCardTypes.length,flipCount);
-
+// to push the clicked card to the empty array
 OpenedCard(this);
 
 if (allCardTypes.length >= 2){
 
-  function flipmatch(allCardTypes){
-    //checks if the two cards in the allcardtypes array are same or not
-    if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
-      // just adds the match to the last two clicks/ the allcardtypes
-      $(allCardTypes).slice(0,2).addClass('match show open');
-    } else {
+  flipMatch()
+}
+  // {
+  //   // //checks if the two cards in the allcardtypes array are same or not
+  //   // if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
+  //   //   // just adds the match to the last two clicks/ the allcardtypes
+  //   //   $(allCardTypes).slice(0,2).addClass('match show open');
+  //   }
+    else {
+      notAMatch();
       //flips the cards if its not a match
-      $('li').removeClass('show open index');
-    }
-    //resets the array and the counter to zero
-    allCardTypes.length = 0;
-    flipCount = 0;
+      // $('li').removeClass('show open index');
+    }setTimeout(flipMatch,500);
+    // //resets the array and the counter to zero
+    // allCardTypes.length = 0;
+    // flipCount = 0;
     // settimeout is to flip the cards if not a match
-    }setTimeout(flipmatch,500);
 
-  }
+
+
 
 // OpenedCard(this);
 // cardsMatch(this);
@@ -104,8 +109,23 @@ var showOpenCard = function(card) {
   $card.addClass('show open index');
 }
 
-var OpenedCard = function() {
-  allCardTypes.push(this); // to add the new card names to the empty array
+var OpenedCard = function(card) {
+  allCardTypes.push(card); // to add the new card names to the empty array
+}
+
+var flipMatch = function() {
+  //checks if the two cards in the allcardtypes array are same or not
+  if(allCardTypes[0].innerHTML  === allCardTypes[1].innerHTML) {
+    // just adds the match to the last two clicks/ the allcardtypes
+    $(allCardTypes).slice(0,2).addClass('match show open');
+  } else
+  //resets the array and the counter to zero
+  allCardTypes.length = 0;
+  flipCount = 0;
+}
+
+var notAMatch = function() {
+  $('li').removeClass('show open index');
 
 }
 //
