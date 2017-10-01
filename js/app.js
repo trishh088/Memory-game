@@ -9,13 +9,19 @@
                "fa fa-bomb", "fa fa-bomb",
                "fa fa-leaf", "fa fa-leaf",
                "fa fa-diamond", "fa fa-diamond",
-               "fa fa-anchor", "fa fa-anchor"
+               "fa fa-anchor", "fa fa-anchor",
+               "fa fa-amazon", "fa fa-amazon",
+               "fa fa-chrome", "fa fa-chrome"
              ]
 
 const levelone = ["fa fa-cube", "fa fa-cube",
-               "fa fa-paper-plane-o", "fa fa-paper-plane-o",
-               "fa fa-bicycle", "fa fa-bicycle",
-               "fa fa-bolt", "fa fa-bolt"]
+              "fa fa-paper-plane-o", "fa fa-paper-plane-o",
+              "fa fa-bicycle", "fa fa-bicycle",
+              "fa fa-bolt", "fa fa-bolt",
+              "fa fa-bomb", "fa fa-bomb",
+              "fa fa-leaf", "fa fa-leaf",
+              "fa fa-diamond", "fa fa-diamond",
+              "fa fa-anchor", "fa fa-anchor"]
 let gameCards;
 
 var flipCount = 0; //counter to keep track of the cards clicked
@@ -40,6 +46,7 @@ var setCard = function () {
         $('.deck').append(cardElement); // adds the cardelement to the html class deck
 
     });
+    // click event so that the cards shuffle even when the refresh button on screen is hit
     $('li')
         .click(function (indexNumber) {
             // to show the clicked card
@@ -96,28 +103,6 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-// $('li')
-//     .click(function (indexNumber) {
-//         // to show the clicked card
-//         showOpenCard(this);
-//         console.log(allCardTypes.length, flipCount);
-//         // to push the clicked card to the empty array
-//         OpenedCard(this);
-//
-//         if (allCardTypes.length >= 2) {
-//             // to check if the cars=ds are matched
-//             flipMatch(this)
-//         } else {
-//             notAMatch();
-//             //flips the cards if its not a match
-//         }
-//         setTimeout(flipMatch, notAMatch, 500); // to avoid delay in the flipping and to make it look smooth
-// gameWin();
-// movesCount++;//increments the number of moves
-// $('.moves').text(movesCount);
-// starRating();
-//
-//     });
 
 // flip the card to show symbol
 var showOpenCard = function (card) {
@@ -165,8 +150,10 @@ var notAMatch = function () {
         .removeClass('show open avoidClick');
 
 }
-//shuffling after restart anad starRating
+
+// for star rating for both the levels
 var starRating = function () {
+  if(gameCards === levelone){
     if (movesCount <= 10) {
         $(".score_star")
             .text("⭐⭐⭐");
@@ -177,13 +164,25 @@ var starRating = function () {
         $(".score_star")
             .text("⭐");
     }
-
+} else if(gameCards === leveltwo){
+  if (movesCount <= 15) {
+      $(".score_star")
+          .text("⭐⭐⭐");
+  } else if (movesCount > 15 && movesCount < 25) {
+      $(".score_star")
+          .text("⭐⭐");
+  } else if (movesCount >= 30) {
+      $(".score_star")
+          .text("⭐");
+  }
+}
 }
 // Close modals when click outside modal
 $('#startModal')
     .click(function () {
         $('#startModal')
             .hide();
+            gameCards = levelone;
     });
 
 $('#winModal #close-win')
@@ -204,9 +203,8 @@ $('#start')
     .click(function (card) {
         $('#startModal')
             .hide();
-        //  shuffle(gameCards);
+            //selects level one
         gameCards = levelone;
-
         setCard();
         stopTimer();
         $('li')
@@ -223,7 +221,6 @@ $('#start')
         .click(function (card) {
             $('#startModal')
                 .hide();
-            //  shuffle(gameCards);
             gameCards = leveltwo;
             setCard();
             stopTimer();
