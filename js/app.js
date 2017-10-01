@@ -69,6 +69,7 @@ var setCard = function () {
                 .text(movesCount);
             starRating();
 
+
         });
 
 }
@@ -121,7 +122,7 @@ var OpenedCard = function (card) {
 }
 
 // checks whether the cards match or not and sets the counters to zero
-var flipMatch = function (card) {
+var flipMatch = function (matchAudio) {
     if (allCardTypes.length > 1) { //to avoid innerhtml error
         //checks if the two cards in the allcardtypes array are same or not
         if (allCardTypes[0].innerHTML === allCardTypes[1].innerHTML) {
@@ -130,6 +131,8 @@ var flipMatch = function (card) {
                 .slice(0, 2)
                 .addClass('match show open ');
             matches++;
+            matchAudio = new Audio('audio/getGem.wav');
+            matchAudio.play();
             allCardTypes.length = 0;
             flipCount = 0;
         } else
@@ -259,13 +262,14 @@ function stopTimer() {
     clearInterval(timerInterval);
     timerValue = 0;
 }
-
 // var Game = function() {
 //     //Preload audio sample(s)
 //     this.getGemEfx = new Audio('audio/getGem.wav');
 //     this.loseLifeEfx = new Audio('audio/loseLife.wav');
 //     this.winGameEfx = new Audio('audio/wingame.wav');
 // };
+//
+
 // document.getElementById('mute')
 //     .addEventListener('click', function(icon) {
 //         if (game.getGemEfx.muted && game.loseLifeEfx && game.winGameEfx) {

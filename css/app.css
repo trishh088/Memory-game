@@ -143,16 +143,11 @@ h1 {
 }
 
 
-.leveltwo {
+.leveltwo, .start {
   margin: 0 0 20px;
   flex-basis: 100%;
   text-align: center;
-}
 
-.start {
-  margin: 0 0 20px;
-  flex-basis: 100%;
-  text-align: center;
 }
 
 /* modal close Button */
@@ -221,7 +216,7 @@ animation-duration: 0.4s;
   text-align: center;
   float:left;
   overflow: auto;
-  margin: 10 20px 0 0;
+  margin: 8px 1px 10px 1px;
 }
 
 .score_star {
