@@ -81,7 +81,7 @@ h1 {
     font-size: 33px;
 }
 
-.index {
+.avoidClick {
   pointer-events: none;
 }
 /*
@@ -125,6 +125,15 @@ h1 {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
+.site-title.start {
+  margin: 0 0 20px;
+}
+
+.start {
+  flex-basis: 100%;
+}
+
 
 /* modal close Button */
 .close {

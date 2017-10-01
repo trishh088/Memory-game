@@ -24,6 +24,7 @@ var cardPairs = 1;
 var allCardTypes = []; // to store all the cardnames value in an empty array
 var shuffledCards = shuffle(gameCards);
 
+
 shuffledCards.forEach(function (symbol) {
     var cardElement = '<li class="card"><i class="' + symbol + '"></i></li>'; // creates a html for adding the cards to the class deck
     $('.deck')
@@ -83,8 +84,8 @@ var showOpenCard = function (card) {
     var $card = $(card);
     // $card = jquery object and $(card) this makes the jquery onbect
     console.log(card, $card);
-    // index class is added to avoid a user clicking the same cards
-    $card.addClass('show open index');
+    // avoidClick class is added to avoid a user clicking the same cards
+    $card.addClass('show open avoidClick');
     flipCount++; // increments the flipCount;
 
 }
@@ -112,15 +113,42 @@ var flipMatch = function (card) {
         // so that the first card is also visible
         $(allCardTypes)
             .slice(0, 1)
-            .addClass('show open index');
+            .addClass('show open avoidClick');
     }
 }
 
 var notAMatch = function () {
     $('li')
-        .removeClass('show open index');
+        .removeClass('show open avoidClick');
 
 }
+// Close modals when click outside modal
+$('#startModal').click(function() {
+    $('#startModal').hide();
+  });
+
+ $('#winModal #close-win').click(function() {
+   $('#winModal').hide();
+ });
+
+ // Open start modal on load
+  $(window).on('load', function() {
+    $('#startModal').show();
+  });
+
+  $('#start').click(function(card) {
+     $('#startModal').hide();
+     shuffledCards;
+     $('li').removeClass('open show match avoidClick');
+     matches = 0;
+   });
+
+// Restart game
+  $('#restart, .restart').click(function() {
+    $('#winModal').hide();
+    $('#startModal').show();
+  });
+
  var gameWin = function () {
    if (matches === cardPairs) {
      $('#winModal').show();
