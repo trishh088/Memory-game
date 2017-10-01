@@ -14,7 +14,10 @@ const gameCards = ["fa fa-cube", "fa fa-cube",
 
 var flipCount = 0; //counter to keep track of the cards clicked
 var matches = 0;
-var cardPairs = 1;
+var cardPairs = 1; // for checking whether all the card pairs are matched or not
+var movesCount = 0; // to count the number of steps
+var timerInterval = null; // to stop the timer
+var timerValue = 0; // to set the initial timer to zero
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -46,6 +49,8 @@ function shuffle(array) {
     }
 
     return array;
+    console.log("called")
+
 }
 
 
@@ -75,11 +80,14 @@ $('li')
             //flips the cards if its not a match
         }
         setTimeout(flipMatch, notAMatch, 500); // to avoid delay in the flipping and to make it look smooth
-
 gameWin();
+movesCount++;//increments the number of moves
+$('.moves').text(movesCount);
+starRating();
+
     });
 
-
+// flip the card to show symbol
 var showOpenCard = function (card) {
     var $card = $(card);
     // $card = jquery object and $(card) this makes the jquery onbect
@@ -90,10 +98,12 @@ var showOpenCard = function (card) {
 
 }
 
+// to append the cards to an empty array
 var OpenedCard = function (card) {
     allCardTypes.push(card); // to add the new card names to the empty array
 }
 
+// checks whether the cards match or not and sets the counters to zero
 var flipMatch = function (card) {
     if (allCardTypes.length > 1) { //to avoid innerhtml error
         //checks if the two cards in the allcardtypes array are same or not
@@ -117,10 +127,18 @@ var flipMatch = function (card) {
     }
 }
 
+// if not a match go back to flip state
 var notAMatch = function () {
     $('li')
         .removeClass('show open avoidClick');
 
+}
+//shuffling after restart anad starRating
+var starRating = function() {
+  if (movesCount>2){
+    $('.stars').removeClass('fa fa-star-o');
+    console.log("hey")
+  }
 }
 // Close modals when click outside modal
 $('#startModal').click(function() {
@@ -136,21 +154,46 @@ $('#startModal').click(function() {
     $('#startModal').show();
   });
 
+// start modal click function 
   $('#start').click(function(card) {
      $('#startModal').hide();
-     shuffledCards;
+    //  shuffle(gameCards);
+    stopTimer();
      $('li').removeClass('open show match avoidClick');
      matches = 0;
+     allCardTypes.length = 0;
+     movesCount = 0;
+     $('.moves').text(movesCount);
+     startTimer();
    });
+
+
 
 // Restart game
   $('#restart, .restart').click(function() {
     $('#winModal').hide();
     $('#startModal').show();
+    stopTimer();
   });
 
  var gameWin = function () {
    if (matches === cardPairs) {
      $('#winModal').show();
+     stopTimer();
  }
+}
+
+function incrementTimer() {
+   timerValue++;
+   $('.timer').text(timerValue); // to add the value to the win modal and the screen
+}
+
+
+function startTimer() {
+  stop(); // stoping the previous counting (if any)
+  timerInterval = setInterval(incrementTimer, 1000);
+}
+var stopTimer = function() {
+  clearInterval(timerInterval);
+  timerValue = 0;
 }
