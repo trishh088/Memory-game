@@ -105,12 +105,14 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    float: left;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
+
 
 /* modal */
 .modal {
@@ -141,6 +143,11 @@ h1 {
 }
 
 
+.leveltwo {
+  margin: 0 0 20px;
+  flex-basis: 100%;
+  text-align: center;
+}
 
 .start {
   margin: 0 0 20px;
@@ -210,13 +217,18 @@ animation-duration: 0.4s;
   width: 100%;
 }
 
-.info .score_star {
+.info  {
   text-align: center;
   float:left;
   overflow: auto;
   margin: 10 20px 0 0;
 }
 
+.score_star {
+ float:left;
+ overflow: auto;
+ /*margin: 10 20px 0 0;*/
+}
 .congrats {
   font:  'Pacifico', cursive;
   color: #40E0D0;
