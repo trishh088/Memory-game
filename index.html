@@ -16,7 +16,7 @@
         </header>
 
         <section class="score-panel">
-        	<ul class="stars score_star"> ⭐⭐⭐</ul>
+        	<ul class=" score_star"> ⭐⭐⭐</ul>
 
         	<span class="moves"></span> Moves
           Time: <span class="timer"></span>
@@ -30,8 +30,12 @@
         <!-- Start Modal -->
         <div id="startModal" class="modal">
            <div class="modal-content">
-             <h2 class="site-title start">Match</h2>
-               <button id="start" class="level-button">Start</button>
+             <h2 class="site-title start">Matching Game</h2>
+             <h3 class="site-title start"><ul>Match all the symbols</ul>
+               <ul>Keep a eye out for the timer and the moves</ul>
+               <ul>Lesser the moves more are the stars you gain
+               <h3> SO are you ready to test your Memory?!</h3></ul>
+               <button id="start">Start</button>
            </div>
            </div>
 
@@ -39,17 +43,19 @@
         <div id="winModal" class="modal">
           <div class="modal-content">
             <div class="close" id="close-win">&times;</div>
-            <h2 class="congrats">Its all Matched Up !</h2>
+            <h1 class="congrats">Its all Matched Up !</h1>
+            <br>
+            <h2 class="congrats">Your Memory Score Card</h2>
             <article class="modal-data">
               <h3 class="info">Star Rating</h3>
               <span class="score_star"></span>
-               <h3>Timer Taken:  <span class="timer"></span></h3>
+               <h3 class="info">Timer Taken:  <span class="timer"></span></h3>
             </article>
             <article class="modal-data">
             </article>
             <article class="play-again">
               <p class="win-text">Do you want to play again?</p>
-              <button id="restart">Restart Game</button>
+              <button id="restart">Restart</button>
             </article>
           </div>
     </div>

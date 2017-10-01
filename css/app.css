@@ -18,7 +18,7 @@ body {
 
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font: 'Pacifico', cursive;
 }
 
 .container {
@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+
     font-weight: 300;
 }
 
@@ -125,16 +125,28 @@ h1 {
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+
+
 }
 
 .site-title.start {
   margin: 0 0 20px;
+  text-align: center;
+  color:#40E0D0;
+  text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 2px #000;
+  -webkit-text-shadow: 0 0 2px #000;
+  font: 'Pacifico', cursive;
+
 }
+
+
 
 .start {
+  margin: 0 0 20px;
   flex-basis: 100%;
+  text-align: center;
 }
-
 
 /* modal close Button */
 .close {
@@ -153,7 +165,7 @@ h1 {
 
 .modal-content {
   position: relative;
-  background-color: #fff;
+  /*background-color: #fff;*/
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
@@ -162,11 +174,18 @@ h1 {
   margin: auto;
   padding: 20px;
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(1,0,0,0.19),0 6px 20px 0 rgba(0,0,0,0.19);
 -webkit-animation-name: animatetop;
 -webkit-animation-duration: 0.4s;
 animation-name: animatetop;
-animation-duration: 0.4s
+animation-duration: 0.4s;
+/*-moz-box-shadow:    inset 0 0 10px ;
+   -webkit-box-shadow: inset 0 0 10px ;
+   box-shadow:         inset 0 0 10px ;*/
+   -moz-box-shadow:    3px 3px 5px 3px ;
+  -webkit-box-shadow: 3px 3px 5px 3px ;
+  box-shadow:         3px 3px 5px 3px;
+
 }
 /* Add Animation */
 @-webkit-keyframes animatetop {
@@ -183,41 +202,56 @@ animation-duration: 0.4s
   float: left;
   text-align: center;
   width: 50%;
+  margin-left: 9em;
+  color: #40E0D0;
 }
 
 .play-again {
   width: 100%;
 }
 
+.info .score_star {
+  text-align: center;
+  float:left;
+  overflow: auto;
+  margin: 10 20px 0 0;
+}
+
 .congrats {
-  font: 40px/60px 'Pokemon Solid', Helvetica, Arial, Sans-Serif;
-  color: #ffcb05;
+  font:  'Pacifico', cursive;
+  color: #40E0D0;
   margin: 10px;
   text-align: center;
   text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 2px 0 #000;
-  letter-spacing: 6px;
-  -webkit-text-stroke: 2px #3c5aa6;
+margin: 0 20px 0 0;
   width: 100%;
 }
 
 .win-text {
   font: italic 18px/24px Helvetica, Arial, Sans-Serif;
   text-align: center;
+  color: #40E0D0;
 }
 
 button {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+  border: 0px solid rgba(123, 123, 123, 0.498039);
   border-radius: 10px;
-  color: #fff;
-  display: block;
-  font: bold 24px/24px Helvetica, Arial, Sans-Serif;
-  margin: auto;
-  padding: 10px 20px;
-  text-decoration: none;
+  color: rgb(153, 153, 153);
+  line-height: 55px;
+  font-size: 18px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 2px 0px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  color: #40E0D0;
+  cursor: pointer;
+  /*height: 50%;*/
+    width: 20%;
+    display: block;
+    margin:0 auto;
 }
 
 button:hover {
-  background: #e60012;
+  background:#e5e500;
   text-decoration: none;
 }
