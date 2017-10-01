@@ -135,10 +135,14 @@ var notAMatch = function () {
 }
 //shuffling after restart anad starRating
 var starRating = function() {
-  if (movesCount>2){
-    $('.stars').removeClass('fa fa-star-o');
-    console.log("hey")
-  }
+  if (movesCount <= 10) {
+        $(".score_star").text("⭐⭐⭐");
+    } else if (movesCount > 10 && movesCount < 20) {
+        $(".score_star").text("⭐⭐");
+    } else if (movesCount >= 25) {
+        $(".score_star").text("⭐");
+    }
+
 }
 // Close modals when click outside modal
 $('#startModal').click(function() {
@@ -154,7 +158,7 @@ $('#startModal').click(function() {
     $('#startModal').show();
   });
 
-// start modal click function 
+// start modal click function
   $('#start').click(function(card) {
      $('#startModal').hide();
     //  shuffle(gameCards);
@@ -193,7 +197,8 @@ function startTimer() {
   stop(); // stoping the previous counting (if any)
   timerInterval = setInterval(incrementTimer, 1000);
 }
-var stopTimer = function() {
+
+function stopTimer() {
   clearInterval(timerInterval);
   timerValue = 0;
 }
