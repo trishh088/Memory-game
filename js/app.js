@@ -177,19 +177,7 @@ var starRating = function () {
   }
 }
 }
-// Close modals when click outside modal
-$('#startModal')
-    .click(function () {
-        $('#startModal')
-            .hide();
-            gameCards = levelone;
-    });
 
-$('#winModal #close-win')
-    .click(function () {
-        $('#winModal')
-            .hide();
-    });
 
 // Open start modal on load
 $(window)
