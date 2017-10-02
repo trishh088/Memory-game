@@ -1,20 +1,18 @@
 # Memory Game Project
+ ===============================
 
-## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+For the Live Version click- https://trishh088.github.io/Memory-game/
 
 ## Instructions
+* Select the level **Easy**, **Medium** or **Difficult** to play a deck of 4,6,10 pairs respectively.
+* Match the symbols to complete the game.
+* Keep a lookout for the stars and timer in the game.
+* Use the **Restart** button at the top right corner to start a new game while playing a game.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Instructions to download the project
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* To download he project go on https://github.com/trishh088/Memory-game
+* Click **'Clone or Download'** to download the file as a zip or on Desktop.
+* Open **index.html** to run the file locally.
+* **app.js** contains the Jquery code, **app.css** contains the CSS code used to style the application.

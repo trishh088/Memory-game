@@ -291,3 +291,6 @@ $(window).on("resize", function () {
     $(".deck ul:first-of-type ").width( $(this).width() - 600 );
 // Invoke the resize event immediately
 }).resize();
+
+//animation for header
+$('.header').addClass('animated  wobble');
