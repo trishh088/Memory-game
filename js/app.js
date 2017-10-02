@@ -56,7 +56,6 @@ var setCard = function() {
  $('li').click(function(indexNumber) {
   // to show the clicked card
   showOpenCard(this);
-  console.log(allCardTypes.length, flipCount);
   // to push the clicked card to the empty array
   OpenedCard(this);
 
@@ -112,10 +111,11 @@ var OpenedCard = function(card) {
 // checks whether the cards match or not and sets the counters to zero
 var flipMatch = function() {
  if (allCardTypes.length > 1) { //to avoid innerhtml error
+   $(allCardTypes).slice(0, 2).addClass(' notmatch animated wobble');
   //checks if the two cards in the allcardtypes array are same or not
   if (allCardTypes[0].innerHTML === allCardTypes[1].innerHTML) {
    // just adds the match to the last two clicks/ the allcardtypes
-   $(allCardTypes).slice(0, 2).addClass('match show open');
+   $(allCardTypes).slice(0, 2).addClass('match show open animated rubberBand').removeClass('wobble notmatch');
    matches++; //increments so that game win knows how many cards are matched
    matchAudio.play(); // plays the match audio
    allCardTypes.length = 0;
@@ -127,13 +127,13 @@ var flipMatch = function() {
   notMatchAudio.play();
  } else {
   // so that the first card is also visible
-  $(allCardTypes).slice(0, 1).addClass('show open avoidClick ');
+  $(allCardTypes).slice(0, 1).addClass('show open avoidClick');
  }
 };
 
 // if not a match go back to flip state
 var notAMatch = function() {
- $('li').removeClass('show open avoidClick ');
+ $('li').removeClass('show open avoidClick notmatch');
 };
 
 // for star rating for all the levels
@@ -285,3 +285,9 @@ $('.sound').on("click", function() {
   $('.sound').text("🔊");
  });
 });
+// Bind to the resize event of the window object
+$(window).on("resize", function () {
+    // Set .right's width to the window width minus 480 pixels
+    $(".deck ul:first-of-type ").width( $(this).width() - 600 );
+// Invoke the resize event immediately
+}).resize();
