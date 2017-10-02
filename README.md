@@ -1,10 +1,10 @@
 # Memory Game Project
- ===============================
+===================================
 
 For the Live Version click- https://trishh088.github.io/Memory-game/
 
 ## Instructions
-* Select the level **Easy**, **Medium** or **Difficult** to play a deck of 4,6,10 pairs respectively.
+* Select the level **Easy**, **Medium** or **Difficult** to play a deck of 4,8,10 pairs respectively.
 * Match the symbols to complete the game.
 * Keep a lookout for the stars and timer in the game.
 * Use the **Restart** button at the top right corner to start a new game while playing a game.

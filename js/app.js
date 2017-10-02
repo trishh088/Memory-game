@@ -15,7 +15,9 @@ const medium = ["fa fa-cube", "fa fa-cube",
  "fa fa-bicycle", "fa fa-bicycle",
  "fa fa-bolt", "fa fa-bolt",
  "fa fa-bomb", "fa fa-bomb",
- "fa fa-leaf", "fa fa-leaf"
+ "fa fa-leaf", "fa fa-leaf",
+ "fa fa-amazon", "fa fa-amazon",
+ "fa fa-chrome", "fa fa-chrome"
 ];
 
 const difficult = ["fa fa-cube", "fa fa-cube",
@@ -99,7 +101,7 @@ var showOpenCard = function(card) {
  $card.addClass('show open avoidClick');
  $("i").addClass(' fa-spin  fa-fw '); // to make the icon go round/animate
  flipCount++; // increments the flipCount;
-
+ startTimer();
 };
 
 // to append the cards to an empty array
@@ -183,7 +185,6 @@ $('#start').click(function(card) {
  allCardTypes.length = 0;
  movesCount = 0;
  $('.moves').text(movesCount);
- startTimer();
 });
 
 //button click for level two , resets all necessary condition
@@ -197,7 +198,6 @@ $('#leveltwo').click(function(card) {
  allCardTypes.length = 0;
  movesCount = 0;
  $('.moves').text(movesCount);
- startTimer();
 });
 
 //button click for level three , resets all necessary condition
@@ -211,7 +211,6 @@ $('#levelthree').click(function() {
  allCardTypes.length = 0;
  movesCount = 0;
  $('.moves').text(movesCount);
- startTimer();
 });
 
 // Restart game
@@ -232,7 +231,7 @@ var gameWin = function() {
    stopTimer();
   }
  } else if (gameCards === medium) {
-  cardPairs = 6;
+  cardPairs = 8;
   if (matches === cardPairs) {
    $('#winModal').show();
    winAudio.play();
