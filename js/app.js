@@ -293,4 +293,4 @@ $(window).on("resize", function () {
 }).resize();
 
 //animation for header
-$('.header').addClass('animated  wobble');
+$('.header').addClass('animated rubberBand');
