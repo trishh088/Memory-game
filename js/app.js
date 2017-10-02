@@ -55,7 +55,7 @@ var setCard = function() {
  });
 
  // click event so that the cards shuffle even when the refresh button on screen is hit
- $('li').click(function(indexNumber) {
+ $('li').click(function() {
   // to show the clicked card
   showOpenCard(this);
   // to push the clicked card to the empty array
@@ -68,9 +68,12 @@ var setCard = function() {
    notAMatch();
    //flips the cards if its not a match
   }
-  setTimeout(flipMatch, notAMatch, 500); // to avoid delay in the flipping and to make it look smooth
-  gameWin();
   movesCount++; //increments the number of moves
+  if(movesCount === 1) {
+   startTimer();
+}
+  setTimeout(flipMatch, notAMatch, 50); // to avoid delay in the flipping and to make it look smooth
+  gameWin();
   $('.moves').text(movesCount);
   starRating();
  });
@@ -101,7 +104,6 @@ var showOpenCard = function(card) {
  $card.addClass('show open avoidClick');
  $("i").addClass(' fa-spin  fa-fw '); // to make the icon go round/animate
  flipCount++; // increments the flipCount;
- startTimer();
 };
 
 // to append the cards to an empty array
