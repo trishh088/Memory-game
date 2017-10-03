@@ -213,12 +213,10 @@ h1 {
 }
 .info {
     text-align: center;
-    float: left;
     overflow: auto;
     margin: 8px 1px 10px 1px;
 }
 .score_star {
-    float: left;
     overflow: auto;
     /*margin: 10 20px 0 0;*/
 }
