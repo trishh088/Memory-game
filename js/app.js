@@ -286,12 +286,12 @@ $('.sound').on("click", function() {
   $('.sound').text("🔊");
  });
 });
-// Bind to the resize event of the window object
-$(window).on("resize", function () {
-    // Set .right's width to the window width minus 480 pixels
-    $(".deck ul:first-of-type ").width( $(this).width() - 600 );
-// Invoke the resize event immediately
-}).resize();
+// // Bind to the resize event of the window object
+// $(window).on("resize", function () {
+//     // Set .right's width to the window width minus 480 pixels
+//     $(".deck ul:first-of-type ").width( $(this).width() - 600 );
+// // Invoke the resize event immediately
+// }).resize();
 
 //animation for header
 $('.header').addClass('animated rubberBand');
