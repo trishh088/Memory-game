@@ -257,13 +257,13 @@ button:hover {
     text-decoration: none;
 }
 
-@media only screen
+/*@media only screen
 and (max-device-width : 800px)
 and (min-device-width : 414px) {
   .deck { width: 350px;
     min-height: 1500px;}
   /*.deck .card { height:2vw; width:2vw;}*/
-  .score-panel {width:150px;}
-  .sound{margin-left:0em;}
+  /*.score-panel {width:150px;}
+  .sound{margin-left:0em;}*/
 
-}
+}*/
